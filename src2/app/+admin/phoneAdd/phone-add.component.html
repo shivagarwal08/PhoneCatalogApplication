@@ -1,0 +1,59 @@
+<h3>Phone Add</h3>
+{{addPhoneForm.value | json}}
+<form [formGroup]="addPhoneForm" novalidate>
+    <!--<div class="form-group">
+        <label class="center-block">State:
+      <select class="form-control" formControlName="state">
+          <option *ngFor="let state of states" [value]="state">{{state}}</option>
+      </select>
+    </label>
+    </div>-->
+  <!--  <div class="form-group radio">
+        <h4>Super power:</h4>
+        <label class="center-block"><input type="radio" formControlName="power" value="flight">Flight</label>
+        <label class="center-block"><input type="radio" formControlName="power" value="x-ray vision">X-ray vision</label>
+        <label class="center-block"><input type="radio" formControlName="power" value="strength">Strength</label>
+    </div>-->
+
+ <!--   <div class="checkbox">
+        <label class="center-block">Availability:
+      <input type="checkbox" formControlName="" (change) >AT&T
+      <input type="checkbox" formControlName="" >KT
+      <input type="checkbox" formControlName="" >T-Mobile
+    </label>
+    </div>-->
+
+    <div class="form-group">
+        <label class="center-block">Id:
+      <input class="form-control" formControlName="id">
+    </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">Name:
+      <input class="form-control" formControlName="name">
+    </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">Price:
+      <input class="form-control" formControlName="price">
+    </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">Description:
+      <textarea class="form-control" formControlName="description"></textarea>
+    </label>
+    </div>
+    <div class="form-group">
+        <label class="center-block">Additional Features:
+      <textarea class="form-control" formControlName="additionalFeatures"></textarea>
+    </label>
+    </div>
+    <div class="form-group radio">
+        <h4>Add to store</h4>
+        <label class="center-block"><input type="radio" formControlName="addToStore" value=true>Yes</label>
+        <label class="center-block"><input type="radio" formControlName="addToStore" value=false>No</label>
+    </div>
+    <div class="">
+        <button class="btn btn-default" (click)="addPhone()">Add</button>
+    </div>
+</form>

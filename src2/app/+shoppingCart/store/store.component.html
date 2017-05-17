@@ -1,0 +1,44 @@
+<p class="info">
+    Welcome to the Phone Store.<br /> Please select the products you want and add them to your shopping cart.<br /> When you are done, click the shopping cart icon to review your order and check out.
+</p>
+<p> Search: <input type="text" [(ngModel)]="search" /></p>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover">
+        <tr class="well">
+            <td class="tdRight" colspan="6">
+                <a routerLink="./cart" title="go to shopping cart">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <b>{{shoppingCartService.getTotalItemsCount()}}</b> items,
+                    <b>{{shoppingCartService.getTotalPrice() | currency:'USD':true}}</b>
+                </a>
+            </td>
+        </tr>
+        <tr *ngFor="let phone of (phones | myItemFilter:search)">
+            <td>
+                <a routerLink="./phones/{{phone.id}}"><b>{{phone.name}}</b></a>
+            </td>
+            <td>
+                <img [src]="phone.imageUrl" class="phones-image img-responsive" />
+            </td>
+            <td> {{phone.snippet}}
+            </td>
+            <td class="tdRight">
+                {{phone.price | currency:'USD':true}}
+            </td>
+            <td> {{phone.age}}
+            </td>
+            <td class="tdCenter">
+                <a (click)="addPhone(phone)"> add to cart </a>
+            </td>
+        </tr>
+        <tr class="well">
+            <td class="tdRight" colspan="6">
+                <a routerLink="./cart" title="go to shopping cart">
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <b>{{shoppingCartService.getTotalItemsCount()}}</b> items,
+                    <b>{{shoppingCartService.getTotalPrice() | currency:'USD':true}}</b>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

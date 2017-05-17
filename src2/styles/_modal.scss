@@ -1,0 +1,33 @@
+.modal-content {
+    .modal-header {
+        border: 1px solid #d5d5d5;
+        background-color: #f2f2f2;
+        border-radius: 6px 6px 0 0;
+        padding: 0 15px;
+        .modal-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #666;
+            line-height: 30px;
+            height: 30px;
+        }
+        .close {
+            height: 30px;
+            line-height: 30px;
+            margin: 0;
+        }
+    }
+    .modal-scroll {
+        overflow: hidden;
+        height: 400px;
+        margin: 10px 10px 15px 0;
+        .modal-body {
+            height: 100%;
+            overflow: auto;
+            background-color: #fff;
+            font-size: 14px;
+            color: #666;
+            border-radius: 0 0 6px 6px;
+        }
+    }
+}

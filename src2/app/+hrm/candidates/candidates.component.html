@@ -1,0 +1,16 @@
+<div *ngIf="candidates">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>PanCard</th>
+                <th>Email</th>
+                <th>Phone</th>
+            </tr>
+            <tr *ngFor="let candidate of candidates">
+                <td (click)="candidateDetails(candidate._id)"><a>{{candidate.panCard}}</a></td>
+                <td>{{candidate.email}}</td>
+                <td>{{candidate.phone}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,283 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="col-md-4">
+            <carousel [interval]="5000" [noWrap]="true" [noPause]="true">
+                <slide *ngFor="let image of phone.images ">
+                    <img [src]="image " alt="phone.name" class="img-responsive">
+                </slide>
+            </carousel>
+        </div>
+        <div class="col-md-8">
+            <div class="table-responsive ">
+                <table class="table table-bordered table-hover ">
+                    <tr class="well ">
+                        <td class="tdRight " colspan="2">
+                            <a routerLink="/shopping-cart/cart " title="go to shopping cart ">
+                                <span class="glyphicon glyphicon-shopping-cart "></span>
+                                <b>{{shoppingCartService.getTotalItemsCount()}}</b> items,
+                                <b>{{shoppingCartService.getTotalPrice() | currency:'USD':true}}</b> <br/>
+                                <span *ngIf="shoppingCartService.getTotalItemsCount(phone.id)> 0"> This item is in the cart</span>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tdRight"><b>Name</b></td>
+                        <td class="tdCenter">{{phone.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="tdRight"><b>Price</b></td>
+                        <td class="tdCenter">{{phone.price | currency:'USD':true}}</td>
+                    </tr>
+                    <tr>
+                        <td class="tdRight"><b>Availability</b></td>
+                        <td class="tdCenter">{{phone.availability}}</td>
+                    </tr>
+                    <tr class="well">
+                        <td class="tdRight" colspan="2">
+                            <a routerLink="/shopping-cart/cart" title="go to shopping cart">
+                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                <b>{{shoppingCartService.getTotalItemsCount()}}</b> items,
+                                <b>{{shoppingCartService.getTotalPrice() | currency:'USD':true}}</b> <br/>
+                                <span *ngIf="shoppingCartService.getTotalItemsCount(phone.sku) > 0">								
+								This item is in the cart
+							</span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <button class="btn btn-block btn-success" (click)="addPhone()">
+              <span class="glyphicon glyphicon-shopping-cart"></span> add to cart
+            </button>
+        <button class="btn btn-block btn-danger" (click)="removePhone()" [disabled]="shoppingCartService.getTotalItemsCount(phone.sku) < 1">
+               <span class="glyphicon glyphicon-trash"></span> remove from cart 
+            </button>
+        <button class="btn btn-block">
+			<a routerLink="/">
+               <span class="glyphicon glyphicon-chevron-left"></span> back to store
+			</a>
+            </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive ">
+            <table class="table table-bordered table-hover ">
+                <tr>
+                    <td class="tdRight"><b>Additional Features</b></td>
+                    <td class="tdCenter">{{phone.additionalFeatures}}</td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>Android</b></td>
+                    <td>
+                        <tr>
+                            <td>OS</td>
+                            <td>{{phone.android?.os}}</td>
+                        </tr>
+                        <tr>
+                            <td>UI</td>
+                            <td> {{phone.android?.ui}}</td>
+                        </tr>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td class="tdRight"><b>Battery</b></td>
+                    <td>
+                        <tr>
+                            <td>Standby Time</td>
+                            <td>{{phone.battery?.standbyTime}}</td>
+                        </tr>
+                        <tr>
+                            <td>Talk Time</td>
+                            <td>{{phone.battery?.talkTime}}</td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>{{phone.battery?.type}}</td>
+                        </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>Camera</b></td>
+                    <td>
+                        <tr>
+                            <td>Features</td>
+                            <td>
+                                <tr *ngFor="let item of phone.camera?.features">
+                                    <td>{{item}}</td>
+                                </tr>
+                            </td>
+                        </tr>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="tdRight"><b>Connectivity</b></td>
+                    <td>
+                        <tr>
+                            <td>bluetooth</td>
+                            <td>{{phone.connectivity?.bluetooth}}</td>
+                        </tr>
+                        <tr>
+                            <td>cell</td>
+                            <td>{{phone.connectivity?.cell}}</td>
+                        </tr>
+                        <tr>
+                            <td>gps</td>
+                            <td>{{phone.connectivity?.gps}}</td>
+                        </tr>
+                        <tr>
+                            <td>infrared</td>
+                            <td>{{phone.connectivity?.infrared}}</td>
+                        </tr>
+                        <tr>
+                            <td>wifi</td>
+                            <td>{{phone.connectivity?.wifi}}</td>
+                        </tr>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="tdRight"><b>Description</b></td>
+                    <td class="tdCenter">{{phone.description}}</td>
+                </tr>
+
+                <tr>
+                    <td class="tdRight"><b>Display</b></td>
+                    <td>
+                        <tr>
+                            <td>screenResolution</td>
+                            <td>{{phone.display?.screenResolution}}</td>
+                        </tr>
+                        <tr>
+                            <td>screenSize</td>
+                            <td>{{phone.display?.screenSize}}</td>
+                        </tr>
+                        <tr>
+                            <td>touchScreen</td>
+                            <td>{{phone.display?.touchScreen}}</td>
+                        </tr>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>Hardware</b></td>
+                    <td>
+                        <tr>
+                            <td>accelerometer</td>
+                            <td>{{phone.hardware?.accelerometer}}</td>
+                        </tr>
+                        <tr>
+                            <td>audioJack</td>
+                            <td>{{phone.hardware?.audioJack}}</td>
+                        </tr>
+                        <tr>
+                            <td>cpu</td>
+                            <td>{{phone.hardware?.cpu}}</td>
+                        </tr>
+                        <tr>
+                            <td>fmRadio</td>
+                            <td>{{phone.hardware?.fmRadio}}</td>
+                        </tr>
+                        <tr>
+                            <td>physicalKeyboard</td>
+                            <td>{{phone.hardware?.physicalKeyboard}}</td>
+                        </tr>
+                        <tr>
+                            <td>usb</td>
+                            <td>{{phone.hardware?.usb}}</td>
+                        </tr>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>Size And Weight</b></td>
+                    <td>
+                        <tr>
+                            <td>dimensions</td>
+                            <td>{{phone.sizeAndWeight?.dimensions[0]}} x {{phone.sizeAndWeight?.dimensions[1]}} x{{phone.sizeAndWeight?.dimensions[2]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>weight</td>
+                            <td>{{phone.sizeAndWeight?.weight}}</td>
+                        </tr>
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>Storage</b></td>
+                    <td>
+                        <tr>
+                            <td>flash</td>
+                            <td>{{phone.storage?.flash}}</td>
+                        </tr>
+                        <tr>
+                            <td>ram</td>
+                            <td>{{phone.storage?.ram}}</td>
+                        </tr>
+                    </td>
+                </tr>
+
+                <!--    <tr>
+                    <td class="tdRight"><b>Calories</b></td>
+                    <td class="tdCenter">
+                        <h2>{{phone.cal}}</h2>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>carotenoid</b></td>
+                    <td class="tdCenter">
+                        <img src="assets/img/r{{phone.nutrients.carotenoid}}.png" alt="{{phone.nutrients.carotenoid}}" />
+                    </td>
+                    <td>
+                        <b>{{dvaCaption[phone.nutrients.carotenoid]}}</b>: {{dvaRange[phone.nutrients.carotenoid]}} of the recommended daily value.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>vitaminC</b></td>
+                    <td class="tdCenter">
+                        <img src="assets/img/r{{phone.nutrients.vitaminC}}.png" alt="{{phone.nutrients.vitaminC}}" />
+                    </td>
+                    <td>
+                        <b>{{dvaCaption[phone.nutrients.vitaminC]}}</b>: {{dvaRange[phone.nutrients.vitaminC]}} of the recommended daily value.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>folates</b></td>
+                    <td class="tdCenter">
+                        <img src="assets/img/r{{phone.nutrients.folates}}.png" alt="{{phone.nutrients.folates}}" />
+                    </td>
+                    <td>
+                        <b>{{dvaCaption[phone.nutrients.folates]}}</b>: {{dvaRange[phone.nutrients.folates]}} of the recommended daily value.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>potassium</b></td>
+                    <td class="tdCenter">
+                        <img src="assets/img/r{{phone.nutrients.potassium}}.png" alt="{{phone.nutrients.potassium}}" />
+                    </td>
+                    <td>
+                        <b>{{dvaCaption[phone.nutrients.potassium]}}</b>: {{dvaRange[phone.nutrients.potassium]}} of the recommended daily value.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdRight"><b>fiber</b></td>
+                    <td class="tdCenter">
+                        <img src="assets/img/r{{phone.nutrients.fiber}}.png" alt="{{phone.nutrients.fiber}}" />
+                    </td>
+                    <td>
+                        <b>{{dvaCaption[phone.nutrients.fiber]}}</b>: {{dvaRange[phone.nutrients.fiber]}} of the recommended daily value.
+                    </td>
+                </tr>-->
+            </table>
+        </div>
+    </div>
+
+</div>

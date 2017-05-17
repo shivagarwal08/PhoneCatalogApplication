@@ -1,0 +1,79 @@
+<p class="text-info">
+    Thanks for shopping at the Phone Store.<br /> This is your shopping cart. Here you can edit the items, go back to the store, clear the cart, or check out.
+</p>
+<div class="row">
+    <div class="col-md-9">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <tr class="well">
+                    <td><b>Item</b></td>
+                    <td class="tdCenter"><b>Quantity</b></td>
+                    <td class="tdRight"><b>Price</b></td>
+                    <td></td>
+                </tr>
+
+                <tr *ngIf="!(shoppingCartService.getTotalItemsCount() > 0)">
+                    <td class="tdCenter" colspan="4">
+                        Your cart is empty.
+                    </td>
+                </tr>
+
+                <tr *ngFor="let item of itemsSortedByName">
+                    <td>{{item.name}}</td>
+                    <td class="tdCenter">
+                        <div class="input-append">
+                            <input class="col-md-3 text-center" type="tel" [disabled]="true" [ngModel]="item.quantity" />
+                            <button class="btn btn-success" type="button" [disabled]="item.quantity >= 100" (click)="addItem(item.sku, item.name, item.price, +1)">+</button>
+                            <button class="btn btn-inverse" type="button" [disabled]="item.quantity <= 1" (click)="addItem(item.sku, item.name, item.price, -1)">-</button>
+                        </div>
+                    </td>
+
+                    <td class="tdRight">{{(item.price * item.quantity) | currency:'USD':true}}</td>
+                    <td class="tdCenter" title="remove from cart">
+                        <a (click)="addItem(item.sku, item.name, item.price, -10000000)">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr class="well">
+                    <td class=""><b>Total</b></td>
+                    <td class="tdCenter"><b>{{shoppingCartService.getTotalItemsCount()}}</b></td>
+                    <td class="tdRight"><b>{{shoppingCartService.getTotalPrice() | currency:'USD':true}}</b></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <p class="text-info">
+            <button class="btn btn-block">
+			<a routerLink="/">
+               <span class="glyphicon glyphicon-chevron-left"></span> back to store
+			</a>
+        </button>
+
+            <button class="btn btn-block btn-danger" (click)="clearCart()" [disabled]="shoppingCartService.getTotalItemsCount() < 1">
+              <span class="glyphicon glyphicon-trash"></span> clear cart
+    	</button>
+        </p>
+        <br /><br />
+        <p class="text-info">
+            <button class="btn btn-block btn-primary" (click)="checkout('PayPal')" [disabled]="shoppingCartService.getTotalItemsCount() < 1">
+                    <span class="glyphicon glyphicon-ok" ></span> check out using PayPal
+                </button>
+            <button class="btn btn-block btn-primary" (click)="checkout('Google')" [disabled]="shoppingCartService.getTotalItemsCount() < 1">
+                    <span class="glyphicon glyphicon-ok" ></span> check out using Google
+                </button>
+        </p>
+
+
+        <p class="text-info">
+            <button class="btn btn-block btn-link" (click)="checkout('PayPal')" [disabled]="shoppingCartService.getTotalItemsCount() < 1">
+                    <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" alt="checkout PayPal"/>
+                </button>
+            <button class="btn btn-block btn-link" (click)="checkout('Google')" [disabled]="shoppingCartService.getTotalItemsCount() < 1">
+                    <img src="https://checkout.google.com/buttons/checkout.gif?w=168&h=44&style=white&variant=text" alt="checkoutGoogle"/>
+                </button>
+        </p>
+    </div>
+</div>

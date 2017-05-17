@@ -1,0 +1,22 @@
+<div *ngIf="phones">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Age</th>
+                <th>Image Location</th>
+                <th>Snippet</th>
+            </tr>
+            <tr *ngFor="let phone of phones">
+                <td><a routerLink="./phones/{{phone.id}}"><b>{{phone.id}}</b></a></td>
+                <td>{{phone.name}}</td>
+                <td>{{phone.price}}</td>
+                <td>{{phone.age}}</td>
+                <td>{{phone.imageUrl}}</td>
+                <td>{{phone.snippet}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

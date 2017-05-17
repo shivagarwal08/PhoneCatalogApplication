@@ -1,0 +1,49 @@
+<h3>HR Section</h3>
+Activities Added on Added by Screened by
+<button class="btn btn-default" type="button" (click)="scheduleInterview()">Schedule L1</button>
+
+<hr/>
+
+<form [formGroup]="addForm" novalidate>
+    <div class="form-group">
+        <div class="col-md-4">
+            <label class="center-block">PAN CARD:</label>
+            <input class="form-control" formControlName="panCard">
+        </div>
+        <div class="col-md-4">
+            <label class="center-block">Email Id:</label>
+            <input class="form-control" formControlName="email">
+        </div>
+        <div class="col-md-4">
+            <label class="center-block">Contact Number:</label>
+            <input class="form-control" formControlName="phone">
+        </div>
+    </div>
+        <div class="form-group">
+        <div class="col-md-4">
+            <label class="center-block">First Name</label>
+            <input class="form-control" formControlName="firstName">
+        </div>
+        <div class="col-md-4">
+            <label class="center-block">Middle Name</label>
+            <input class="form-control" formControlName="middleName">
+        </div>
+        <div class="col-md-4">
+            <label class="center-block">Last Name</label>
+            <input class="form-control" formControlName="lastName">
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-default" type="submit" (click)="updateCandidate()">Update</button>
+    </div>
+</form>
+{{candidate.email}}
+{{candidate.status}}
+<h3>Details</h3>
+First Name, middle name, last name
+
+<h3> Education Qualifications</h3>
+Graduation: B Tech, year, %, college
+<h3>Technologies</h3>
+name, experience, proficiency level, Primary/ secondary
+<h3>Resume</h3>
