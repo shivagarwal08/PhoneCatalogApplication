@@ -3,20 +3,15 @@
     <h3>Modal Examples</h3>
 
     <ng-template #authModalBody>
-        <!--<au-tab-panel>
-        </au-tab-panel>-->
+        <au-tab-panel>
+        </au-tab-panel>
     </ng-template>
 
-    <!--<au-modal class="auth-modal" [body]="authModalBody" *auModalOpenOnClick="[loginButton, signUpButton]">
-    </au-modal>-->
-
-    <au-modal class="auth-modal" [body]="authModalBody">
-    </au-modal>
-
-    <!--<ng-template [auModalOpenOnClick]="[loginButton, signUpButton]">
+    <ng-template [auModalOpenOnClick]="[loginButton, signUpButton]">
         <au-modal class="auth-modal" [body]="authModalBody">
         </au-modal>
-    </ng-template>-->
+    </ng-template>
+
 
     <div class="modal-buttons">
         <button #loginButton>Login</button>

@@ -1,0 +1,36 @@
+<!--component html goes here -->
+<h3>Content Projection</h3>
+<sample-content-projection-child>
+    <section>
+        <h4>Section Content with a method in parent</h4>
+        <h5>{{message}}</h5>
+        <button (click)="updateMessage()">Parent/Child Show</button>
+    </section>
+    <div class="class-select">
+        div with .class-select
+    </div>
+    <footer>Footer Content</footer>
+    <header>Header COntent</header>
+</sample-content-projection-child>
+
+-------------------
+<h3>Multiple structural directive ngFor and ngIf: ng-template</h3>
+<div *ngFor=" let item of tabs ">
+    <div *ngIf="item.tabIndex===1 || item.tabIndex===3 ">
+        <p>Hello- {{item | json }}</p>
+    </div>
+</div>
+<hr/>
+<ng-template ngFor let-item [ngForOf]="tabs " let-i="index ">
+    <div *ngIf="item.tabIndex===1 || item.tabIndex===3 ">
+        <p>Hello- {{item | json }}</p>
+    </div>
+</ng-template>
+
+<h3>Multiple structural directive ngFor and ngIf: ng-container</h3>
+<ng-container *ngFor="let item of tabs ">
+    <div *ngIf="item.tabIndex===1 || item.tabIndex===3 ">
+        <p>Hello- {{item | json }}</p>
+    </div>
+</ng-container>
+<hr/>

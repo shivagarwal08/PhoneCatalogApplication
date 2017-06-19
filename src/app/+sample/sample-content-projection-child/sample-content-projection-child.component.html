@@ -1,0 +1,17 @@
+<!--component html goes here -->
+<h4>Sample Content Projection Child Component</h4>
+<h5>Child component with multiple ng-content</h5>
+{{title}}
+
+<div>
+    <ng-content select="header"></ng-content>
+</div>
+<div>
+    <ng-content select="section"></ng-content>
+</div>
+<div>
+    <ng-content select=".class-select"></ng-content>
+</div>
+<div>
+    <ng-content select="footer"></ng-content>
+</div>
