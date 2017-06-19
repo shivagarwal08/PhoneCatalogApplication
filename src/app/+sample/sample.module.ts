@@ -7,6 +7,7 @@ import { routes } from './sample.routes';
 import { SampleComponent } from './sample.component';
 import { SampleFormComponent, AuFaInputComponent } from './sample-form';
 import { SampleModalComponent, AuModalModule } from './sample-modal';
+import { SampleTabsComponent, AuTabComponent, AuTabPanelComponent } from './sample-tabs';
 
 console.log('`Sample` bundle loaded asynchronously');
 
@@ -15,6 +16,9 @@ console.log('`Sample` bundle loaded asynchronously');
     AuFaInputComponent,
     SampleFormComponent,
     SampleModalComponent,
+    AuTabComponent,    
+    AuTabPanelComponent, 
+    SampleTabsComponent,
     SampleComponent  
   ],
   imports: [

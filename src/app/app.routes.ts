@@ -6,9 +6,10 @@ import { NoContentComponent } from './no-content';
 import { DataResolver } from './app.resolver';
 
 export const ROUTES: Routes = [
+  {path: '', redirectTo: 'sample', pathMatch: 'full'},
   { path: 'home',  component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: '', loadChildren: './+sample#SampleModule' },
+  { path: 'sample', loadChildren: './+sample#SampleModule' },
   { path: 'detail', loadChildren: './+detail#DetailModule'},
   // { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
   // { path: 'hrm', loadChildren: './+hrm#HRMModule' },
