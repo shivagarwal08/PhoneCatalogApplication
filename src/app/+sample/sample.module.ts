@@ -15,6 +15,8 @@ import { SampleTabsComponent } from './sample-tabs';
 import { SampleContentProjectionComponent } from './sample-content-projection';
 import { SampleContentProjectionChildComponent } from './sample-content-projection-child';
 
+import { SampleLifeCycleComponent, SampleHelloComponent, SampleHelloListComponent } from './sample-life-cycle';
+
 console.log('`Sample` bundle loaded asynchronously');
 
 @NgModule({
@@ -27,6 +29,7 @@ console.log('`Sample` bundle loaded asynchronously');
     SampleTabsComponent,
     SampleContentProjectionChildComponent,
     SampleContentProjectionComponent,
+    SampleLifeCycleComponent, SampleHelloComponent, SampleHelloListComponent,
     SampleComponent
   ],
   imports: [
