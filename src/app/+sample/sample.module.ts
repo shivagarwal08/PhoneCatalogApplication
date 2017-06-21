@@ -16,6 +16,8 @@ import { SampleContentProjectionComponent } from './sample-content-projection';
 import { SampleContentProjectionChildComponent } from './sample-content-projection-child';
 
 import { SampleLifeCycleComponent, SampleHelloComponent, SampleHelloListComponent } from './sample-life-cycle';
+import { SampleAngularApisComponent, SampleDelayDirective } from './sample-angular-apis';
+import { SampleCardApiComponent  } from './sample-card-api';
 
 console.log('`Sample` bundle loaded asynchronously');
 
@@ -30,6 +32,7 @@ console.log('`Sample` bundle loaded asynchronously');
     SampleContentProjectionChildComponent,
     SampleContentProjectionComponent,
     SampleLifeCycleComponent, SampleHelloComponent, SampleHelloListComponent,
+    SampleAngularApisComponent, SampleCardApiComponent, SampleDelayDirective,
     SampleComponent
   ],
   imports: [

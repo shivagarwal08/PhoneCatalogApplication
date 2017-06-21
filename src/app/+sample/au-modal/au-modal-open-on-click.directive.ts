@@ -1,4 +1,4 @@
-import { Directive, TemplateRef, ViewContainerRef, Input } from '@angular/core';
+import { Directive, TemplateRef, ViewContainerRef, Input, ElementRef } from '@angular/core';
 
 @Directive({
     selector: '[auModalOpenOnClick]'
@@ -10,13 +10,14 @@ export class AuModalOpenOnClickDirective {
     }
     @Input()
     set auModalOpenOnClick(els){
+        console.log('auModalOpenOnClick Input set');
         let elements: HTMLBaseElement[];
         if(els.length) {
             elements = els;
         }else {
             elements = [els];
         }
-
+        console.log('elements:', elements);
         elements.forEach(el => {
             el.addEventListener('click', () => {
                 this.viewContainer.clear();

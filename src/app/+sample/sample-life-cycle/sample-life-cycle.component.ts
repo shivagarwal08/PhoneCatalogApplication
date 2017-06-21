@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, ElementRef, AfterContentInit } from '@angular/core';
 
 @Component({
     moduleId: 'sample-life-cycle',
@@ -6,7 +6,18 @@ import { Component} from '@angular/core';
     templateUrl: 'sample-life-cycle.component.html',
     styleUrls: ['sample-life-cycle.component.scss']
 })
-export class SampleLifeCycleComponent {
+export class SampleLifeCycleComponent implements AfterContentInit {
+    node: string = 'intial value';
+    constructor(private elementRef: ElementRef) {
+    }
+    ngAfterContentInit() {
+        const tmp = document.createElement('div');
+        const el = this.elementRef.nativeElement.cloneNode(true);
+        tmp.appendChild(el);
+        console.log('tmp', tmp);
+        this.node = tmp.innerHTML; 
+
+    }
     
 
 }
