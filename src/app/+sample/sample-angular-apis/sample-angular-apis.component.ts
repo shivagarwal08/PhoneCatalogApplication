@@ -1,4 +1,5 @@
 import { Component, ElementRef,  TemplateRef, AfterViewInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { HelloWorldComponent } from './hello-world.component';
 
 @Component({
     moduleId: 'sample-angular-apis',
@@ -16,4 +17,9 @@ export class SampleAngularApisComponent implements AfterViewInit {
     }*/
     ngAfterViewInit(): void {
     }
+
+    /*myContext = {$implicit: 'World', localSk: 'Svet'};*/
+    // HelloWorldComponent = HelloWorldComponent;
+
+
 }
